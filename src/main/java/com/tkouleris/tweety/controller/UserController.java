@@ -43,6 +43,8 @@ public class UserController {
 	{
         User LoggedInUser = R_User.findByUsername(authentication.getName());
         user.setUser_id(LoggedInUser.getUser_id());
+        user.setEmail(LoggedInUser.getEmail());
+        user.setUsername(LoggedInUser.getUsername());
 		User updatedUser = userService.changePassword(user);
 		apiResponse.setData(updatedUser);
 		apiResponse.setMessage("Password changes");
